@@ -1,4 +1,3 @@
-# from bibgrafo.grafo_lista_adjacencia import GrafoListaAdjacencia
 from meu_grafo import MeuGrafo
 
 paraiba = MeuGrafo()

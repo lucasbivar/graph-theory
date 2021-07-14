@@ -135,7 +135,7 @@ class MeuGrafo(GrafoListaAdjacencia):
         return verticesAdjacentes
 
 
-    def __dfs_auxiliar(self, V, dfs, verticesVisitados, verticesAdjacentes):
+    def __dfs_recursivo(self, V, dfs, verticesVisitados, verticesAdjacentes):
         '''
         Responsável por percorrer o grafo de modo recursivo
         :param V: O vértice atual
@@ -150,7 +150,7 @@ class MeuGrafo(GrafoListaAdjacencia):
 
             if verticeAdjacente not in verticesVisitados:
                 dfs.adicionaAresta(rotuloAresta, V, verticeAdjacente)
-                self.__dfs_auxiliar(verticeAdjacente, dfs, verticesVisitados, verticesAdjacentes)
+                self.__dfs_recursivo(verticeAdjacente, dfs, verticesVisitados, verticesAdjacentes)
 
 
     def dfs(self, V=''):
@@ -171,7 +171,7 @@ class MeuGrafo(GrafoListaAdjacencia):
 
         if V not in verticesAdjacentes: return dfs
 
-        self.__dfs_auxiliar(V, dfs, verticesVisitados, verticesAdjacentes)
+        self.__dfs_recursivo(V, dfs, verticesVisitados, verticesAdjacentes)
         
         return dfs
     

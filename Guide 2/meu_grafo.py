@@ -113,9 +113,10 @@ class MeuGrafo(GrafoListaAdjacencia):
         return True
 
 
-    def __gerarListaAdjacencia(self):
+    def __gerarVerticesAdjacencentes(self):
         '''
-        Gera Lista de Adjacência do grafo para faciliar a realização da DFS e da BFS.
+        Gera dicionário com os vertices adjacentes de cada vértice do grafo 
+        para otimizar a realização da DFS e da BFS.
         '''
         verticesAdjacentes = {}
 
@@ -159,11 +160,11 @@ class MeuGrafo(GrafoListaAdjacencia):
         :return: Um objeto do tipo MeuGrafo com o grafo gerado
         :raises: VerticeInvalidoException se o vértice não existe no grafo
         '''
-        # O(V+A) -> V - Quantidade de vértices; A - Quantidade de arestas
+        # O(n+m) -> n - Quantidade de vértices; m - Quantidade de arestas
         if not self.existeVertice(V):
             raise VerticeInvalidoException(f'O vértice {V} passado como parâmetro não existe.')
 
-        verticesAdjacentes = self.__gerarListaAdjacencia()
+        verticesAdjacentes = self.__gerarVerticesAdjacencentes()
 
         dfs = MeuGrafo(self.N[::])
         verticesVisitados = set()
@@ -183,7 +184,7 @@ class MeuGrafo(GrafoListaAdjacencia):
         :return: Um objeto do tipo MeuGrafo com o grafo gerado
         :raises: VerticeInvalidoException se o vértice não existe no grafo
         '''
-        # O(V+A) -> V - Quantidade de vértices; A - Quantidade de arestas
+        # O(n+m) -> n - Quantidade de vértices; m- Quantidade de arestas
         if not self.existeVertice(V):
             raise VerticeInvalidoException(f'O vértice {V} passado como parâmetro não existe.')
 
@@ -192,7 +193,7 @@ class MeuGrafo(GrafoListaAdjacencia):
         verticesVisitados = set([V])
         fila = deque([V])
 
-        verticesAdjacentes = self.__gerarListaAdjacencia()
+        verticesAdjacentes = self.__gerarVerticesAdjacencentes()
 
         if V not in verticesAdjacentes: return bfs
 

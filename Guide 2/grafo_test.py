@@ -80,6 +80,96 @@ class TestGrafo(unittest.TestCase):
         self.g_pa.adicionaAresta('amizade7', 'Isabella', 'Henrique')
         self.g_pa.adicionaAresta('amizade8', 'Isabella', 'Henrique')
 
+        # Grafos de arvores DFS para teste da função DFS
+        self.g_p_dfs_j = MeuGrafo(['J', 'C', 'E', 'P', 'M', 'T', 'Z'])
+        self.g_p_dfs_j.adicionaAresta('a1', 'J', 'C')
+        self.g_p_dfs_j.adicionaAresta('a2', 'C', 'E')
+        self.g_p_dfs_j.adicionaAresta('a4', 'P', 'C')
+        self.g_p_dfs_j.adicionaAresta('a6', 'T', 'C')
+        self.g_p_dfs_j.adicionaAresta('a8', 'M', 'T')
+        self.g_p_dfs_j.adicionaAresta('a9', 'T', 'Z')
+
+        self.g_p_dfs_z = MeuGrafo(['J', 'C', 'E', 'P', 'M', 'T', 'Z'])
+        self.g_p_dfs_z.adicionaAresta('a1', 'J', 'C')
+        self.g_p_dfs_z.adicionaAresta('a2', 'C', 'E')
+        self.g_p_dfs_z.adicionaAresta('a4', 'P', 'C')
+        self.g_p_dfs_z.adicionaAresta('a6', 'T', 'C')
+        self.g_p_dfs_z.adicionaAresta('a7', 'M', 'C')
+        self.g_p_dfs_z.adicionaAresta('a9', 'T', 'Z')
+
+        self.g_p_dfs_m = MeuGrafo(['J', 'C', 'E', 'P', 'M', 'T', 'Z'])
+        self.g_p_dfs_m.adicionaAresta('a1', 'J', 'C')
+        self.g_p_dfs_m.adicionaAresta('a2', 'C', 'E')
+        self.g_p_dfs_m.adicionaAresta('a4', 'P', 'C')
+        self.g_p_dfs_m.adicionaAresta('a6', 'T', 'C')
+        self.g_p_dfs_m.adicionaAresta('a7', 'M', 'C')
+        self.g_p_dfs_m.adicionaAresta('a9', 'T', 'Z')
+
+        self.g_c_dfs_c = MeuGrafo(['J', 'C', 'E', 'P'])
+        self.g_c_dfs_c.adicionaAresta('a1','J','C')
+        self.g_c_dfs_c.adicionaAresta('a2', 'J', 'E')
+        self.g_c_dfs_c.adicionaAresta('a6', 'P', 'E')
+
+        self.g_c_dfs_e = MeuGrafo(['J', 'C', 'E', 'P'])
+        self.g_c_dfs_e.adicionaAresta('a1','J','C')
+        self.g_c_dfs_e.adicionaAresta('a2', 'J', 'E')
+        self.g_c_dfs_e.adicionaAresta('a5', 'P', 'C')
+
+        self.g_c_dfs_j = MeuGrafo(['J', 'C', 'E', 'P'])
+        self.g_c_dfs_j.adicionaAresta('a1','J','C')
+        self.g_c_dfs_j.adicionaAresta('a4', 'E', 'C')
+        self.g_c_dfs_j.adicionaAresta('a6', 'P', 'E')
+
+        self.g_c2_dfs_nina = MeuGrafo(['Nina', 'Maria'])
+        self.g_c2_dfs_nina.adicionaAresta('amiga', 'Nina', 'Maria')
+
+        self.g_c3_dfs_j = MeuGrafo(['J'])
+
+        # Grafos de arvores BFS para teste da função BFS
+        self.g_p_bfs_j = MeuGrafo(['J', 'C', 'E', 'P', 'M', 'T', 'Z'])
+        self.g_p_bfs_j.adicionaAresta('a1', 'J', 'C')
+        self.g_p_bfs_j.adicionaAresta('a2', 'C', 'E')
+        self.g_p_bfs_j.adicionaAresta('a4', 'P', 'C')
+        self.g_p_bfs_j.adicionaAresta('a6', 'T', 'C')
+        self.g_p_bfs_j.adicionaAresta('a7', 'M', 'C')
+        self.g_p_bfs_j.adicionaAresta('a9', 'T', 'Z')
+
+        self.g_p_bfs_z = MeuGrafo(['J', 'C', 'E', 'P', 'M', 'T', 'Z'])
+        self.g_p_bfs_z.adicionaAresta('a1', 'J', 'C')
+        self.g_p_bfs_z.adicionaAresta('a2', 'C', 'E')
+        self.g_p_bfs_z.adicionaAresta('a4', 'P', 'C')
+        self.g_p_bfs_z.adicionaAresta('a6', 'T', 'C')
+        self.g_p_bfs_z.adicionaAresta('a8', 'M', 'T')
+        self.g_p_bfs_z.adicionaAresta('a9', 'T', 'Z')
+
+        self.g_p_bfs_m = MeuGrafo(['J', 'C', 'E', 'P', 'M', 'T', 'Z'])
+        self.g_p_bfs_m.adicionaAresta('a1', 'J', 'C')
+        self.g_p_bfs_m.adicionaAresta('a2', 'C', 'E')
+        self.g_p_bfs_m.adicionaAresta('a4', 'P', 'C')
+        self.g_p_bfs_m.adicionaAresta('a7', 'M', 'C')
+        self.g_p_bfs_m.adicionaAresta('a8', 'M', 'T')
+        self.g_p_bfs_m.adicionaAresta('a9', 'T', 'Z')
+
+        self.g_c_bfs_c = MeuGrafo(['J', 'C', 'E', 'P'])
+        self.g_c_bfs_c.adicionaAresta('a1','J','C')
+        self.g_c_bfs_c.adicionaAresta('a4', 'E', 'C')
+        self.g_c_bfs_c.adicionaAresta('a5', 'P', 'C')
+
+        self.g_c_bfs_e = MeuGrafo(['J', 'C', 'E', 'P'])
+        self.g_c_bfs_e.adicionaAresta('a2', 'J', 'E')
+        self.g_c_bfs_e.adicionaAresta('a4', 'E', 'C')
+        self.g_c_bfs_e.adicionaAresta('a6', 'P', 'E')
+
+        self.g_c_bfs_j = MeuGrafo(['J', 'C', 'E', 'P'])
+        self.g_c_bfs_j.adicionaAresta('a1','J','C')
+        self.g_c_bfs_j.adicionaAresta('a2', 'J', 'E')
+        self.g_c_bfs_j.adicionaAresta('a3', 'J', 'P')
+
+        self.g_c2_bfs_nina = MeuGrafo(['Nina', 'Maria'])
+        self.g_c2_bfs_nina.adicionaAresta('amiga', 'Nina', 'Maria')
+
+        self.g_c3_bfs_j = MeuGrafo(['J'])
+
     def test_adiciona_aresta(self):
         self.assertTrue(self.g_p.adicionaAresta('a10', 'J', 'C'))
         with self.assertRaises(ArestaInvalidaException):
@@ -181,29 +271,25 @@ class TestGrafo(unittest.TestCase):
         self.assertFalse((self.g_pa.eh_completo()))
 
     def test_dfs(self):
-        self.assertEqual(list(self.g_p.dfs('J').A), ['a1', 'a2', 'a4', 'a6', 'a8', 'a9'])
-        self.assertEqual(list(self.g_p.dfs('Z').A), ['a9', 'a6', 'a1', 'a2', 'a4', 'a7'])
-        self.assertEqual(list(self.g_p.dfs('T').A), ['a6', 'a1', 'a2', 'a4', 'a7', 'a9'])
-        self.assertEqual(list(self.g_p.dfs('C').A), ['a1', 'a2', 'a4', 'a6', 'a8', 'a9'])
-        self.assertEqual(list(self.g_p.dfs('M').A), ['a7', 'a1', 'a2', 'a4', 'a6', 'a9'])
-        self.assertEqual(list(self.g_c.dfs('C').A), ['a1', 'a2', 'a6'])
-        self.assertEqual(list(self.g_c.dfs('E').A), ['a2', 'a1', 'a5'])
-        self.assertEqual(list(self.g_c.dfs('J').A), ['a1', 'a4', 'a6'])
-        self.assertEqual(list(self.g_c2.dfs('Nina').A), ['amiga'])
-        self.assertEqual(list(self.g_c3.dfs('J').A), [])
+        self.assertEqual(self.g_p_dfs_j, self.g_p.dfs('J'))
+        self.assertEqual(self.g_p_dfs_z, self.g_p.dfs('Z'))
+        self.assertEqual(self.g_p_dfs_m, self.g_p.dfs('M'))
+        self.assertEqual(self.g_c_dfs_c, self.g_c.dfs('C'))
+        self.assertEqual(self.g_c_dfs_e, self.g_c.dfs('E'))
+        self.assertEqual(self.g_c_dfs_j, self.g_c.dfs('J'))
+        self.assertEqual(self.g_c2_dfs_nina, self.g_c2.dfs('Nina'))
+        self.assertEqual(self.g_c3_dfs_j, self.g_c3.dfs('J'))
         with self.assertRaises(VerticeInvalidoException):
-            self.assertEqual(list(self.g_p.dfs('Q').A), ['a4', 'a2', 'a3', 'a7', 'a6', 'a9'])
+            self.assertEqual(self.g_p.dfs('Q'), MeuGrafo())
 
     def test_bfs(self):
-        self.assertEqual(list(self.g_p.bfs('J').A), ['a1', 'a2', 'a4', 'a6', 'a7', 'a9'])
-        self.assertEqual(list(self.g_p.bfs('Z').A), ['a9', 'a6', 'a8', 'a1', 'a2', 'a4'])
-        self.assertEqual(list(self.g_p.bfs('T').A), ['a6', 'a8', 'a9', 'a1', 'a2', 'a4'])
-        self.assertEqual(list(self.g_p.bfs('C').A), ['a1', 'a2', 'a4', 'a6', 'a7', 'a9'])
-        self.assertEqual(list(self.g_p.bfs('M').A), ['a7', 'a8', 'a1', 'a2', 'a4', 'a9'])
-        self.assertEqual(list(self.g_c.bfs('C').A), ['a1', 'a4', 'a5'])
-        self.assertEqual(list(self.g_c.bfs('E').A), ['a2', 'a4', 'a6'])
-        self.assertEqual(list(self.g_c.bfs('J').A), ['a1', 'a2', 'a3'])
-        self.assertEqual(list(self.g_c2.bfs('Nina').A), ['amiga'])
-        self.assertEqual(list(self.g_c3.bfs('J').A), [])
+        self.assertEqual(self.g_p_bfs_j, self.g_p.bfs('J'))
+        self.assertEqual(self.g_p_bfs_z, self.g_p.bfs('Z'))
+        self.assertEqual(self.g_p_bfs_m, self.g_p.bfs('M'))
+        self.assertEqual(self.g_c_bfs_c, self.g_c.bfs('C'))
+        self.assertEqual(self.g_c_bfs_e, self.g_c.bfs('E'))
+        self.assertEqual(self.g_c_bfs_j, self.g_c.bfs('J'))
+        self.assertEqual(self.g_c2_bfs_nina, self.g_c2.bfs('Nina'))
+        self.assertEqual(self.g_c3_bfs_j, self.g_c3.bfs('J'))
         with self.assertRaises(VerticeInvalidoException):
-            self.assertEqual(list(self.g_p.bfs('X').A), ['a7', 'a1', 'a2', 'a4', 'a6', 'a9'])
+            self.assertEqual(self.g_p.bfs('X'), MeuGrafo())

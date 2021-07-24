@@ -312,3 +312,12 @@ class TestGrafo(unittest.TestCase):
         self.assertEqual(self.g_c3.bfs('J'), self.g_c3_bfs_j)
         with self.assertRaises(VerticeInvalidoException):
             self.assertEqual(self.g_p.bfs('X'), MeuGrafo())
+
+    def test_conexo(self):
+        self.assertEqual(self.g_p.conexo(), True)
+        self.assertEqual(self.g_c.conexo(), True)
+        self.assertEqual(self.g_c2.conexo(), True)
+        self.assertEqual(self.g_c3.conexo(), True)
+        self.assertEqual(self.g_d.conexo(), False)
+        self.assertEqual(self.g_d2.conexo(), False)
+        self.assertEqual(self.g_d3.conexo(), False)

@@ -76,8 +76,8 @@ class TestGrafo(unittest.TestCase):
         self.g_d2.adicionaAresta('a4', 'C', 'D')
         self.g_d2.adicionaAresta('a5', 'E', 'F')
 
-        self.g_d3 = MeuGrafo(['Pedro', 'Rebeca', 'Valentina', 'Enzo', 'Augusto',
-         'Leticia', 'Amanda', 'Lucas', 'Isabel', 'Luisa'])
+        self.g_d3 = MeuGrafo(['Luisa','Pedro', 'Rebeca', 'Valentina', 'Enzo', 'Augusto',
+         'Leticia', 'Amanda', 'Lucas', 'Isabel'])
         self.g_d3.adicionaAresta('a1', 'Pedro', 'Valentina')
         self.g_d3.adicionaAresta('a2', 'Enzo', 'Valentina')
         self.g_d3.adicionaAresta('a3', 'Pedro', 'Enzo')
@@ -188,6 +188,39 @@ class TestGrafo(unittest.TestCase):
         self.g_c2_bfs_nina.adicionaAresta('amiga', 'Nina', 'Maria')
 
         self.g_c3_bfs_j = MeuGrafo(['J'])
+
+        self.g_g1 = MeuGrafo(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'])
+        self.g_g1.adicionaAresta("1", "A", "B")
+        self.g_g1.adicionaAresta("2", "A", "G")
+        self.g_g1.adicionaAresta("3", "A", "J")
+        self.g_g1.adicionaAresta("4", "K", "G")
+        self.g_g1.adicionaAresta("5", "K", "J")
+        self.g_g1.adicionaAresta("6", "J", "G")
+        self.g_g1.adicionaAresta("7", "J", "I")
+        self.g_g1.adicionaAresta("8", "I", "G")
+        self.g_g1.adicionaAresta("9", "G", "H")
+        self.g_g1.adicionaAresta("10", "H", "F")
+        self.g_g1.adicionaAresta("11", "F", "B")
+        self.g_g1.adicionaAresta("12", "B", "G")
+        self.g_g1.adicionaAresta("13", "B", "C")
+        self.g_g1.adicionaAresta("14", "C", "D")
+        self.g_g1.adicionaAresta("15", "D", "E")
+        self.g_g1.adicionaAresta("16", "D", "B")
+        self.g_g1.adicionaAresta("17", "E", "B")
+
+        self.g_g2 = MeuGrafo(['1', '2', '3', '4', '5', '6', '7', '8', '9'])
+        self.g_g2.adicionaAresta('a1', '1', '2')
+        self.g_g2.adicionaAresta('a2', '2', '4')
+        self.g_g2.adicionaAresta('a3', '3', '2')
+        self.g_g2.adicionaAresta('a4', '2', '3')
+        self.g_g2.adicionaAresta('a5', '2', '4')
+        self.g_g2.adicionaAresta('a6', '2', '6')
+        self.g_g2.adicionaAresta('a7', '2', '5')
+        self.g_g2.adicionaAresta('a8', '5', '6')
+        self.g_g2.adicionaAresta('a9', '8', '6')
+        self.g_g2.adicionaAresta('a10', '7', '6')
+        self.g_g2.adicionaAresta('a11', '8', '7')
+        self.g_g2.adicionaAresta('a12', '8', '9')
 
     def test_adiciona_aresta(self):
         self.assertTrue(self.g_p.adicionaAresta('a10', 'J', 'C'))
@@ -313,11 +346,59 @@ class TestGrafo(unittest.TestCase):
         with self.assertRaises(VerticeInvalidoException):
             self.assertEqual(self.g_p.bfs('X'), MeuGrafo())
 
+    def test_ha_ciclo(self):
+        self.assertEqual(self.g_p.ha_ciclo(), ['C', 'a7', 'M', 'a8', 'T', 'a6', 'C'])
+        self.assertEqual(self.g_d2.ha_ciclo(), ['A', 'a2', 'C', 'a3', 'B', 'a1', 'A'])
+        self.assertEqual(self.g_d3.ha_ciclo(), ['Pedro', 'a3', 'Enzo', 'a2', 
+        'Valentina', 'a1', 'Pedro'])
+        self.assertEqual(self.g_g2.ha_ciclo(), ['2', 'a7', '5', 'a8', '6', 
+        'a6', '2'])
+        self.assertEqual(self.g_g1.ha_ciclo(), ['A', '2', 'G', '9', 'H', '10',
+         'F', '11', 'B', '1', 'A'])
+        self.assertEqual(self.g_l2.ha_ciclo(), ['A', 'a3', 'B', 'a1', 'A'])
+        self.assertEqual(self.g_l4.ha_ciclo(), ['D', 'a1', 'D'])
+        self.assertEqual(self.g_p.ha_ciclo(), ['C', 'a7', 'M', 'a8', 'T', 'a6', 'C'])
+        self.assertEqual(self.g_c.ha_ciclo(), ['J', 'a3', 'P', 'a5', 'C', 'a1', 'J'])
+        self.assertEqual(self.g_c2.ha_ciclo(), False)
+        self.assertEqual(self.g_c3.ha_ciclo(), False)
+        self.assertEqual(self.g_pa.ha_ciclo(), ['Joao', 'amizade5', 'Henrique',
+         'amizade7', 'Isabella', 'amizade3', 'Joao'])
+
+
+    def test_caminho(self):
+        self.assertEqual(self.g_p.caminho(2), ['J', 'a1', 'C', 'a7', 'M'])
+        self.assertEqual(self.g_p.caminho(4), ['J', 'a1', 'C', 'a7', 'M', 
+        'a8', 'T', 'a9', 'Z'])
+        self.assertEqual(self.g_p.caminho(8), False)
+        self.assertEqual(self.g_g1.caminho(5), 
+        ['A', '3', 'J', '5', 'K', '4', 'G', '9', 'H', '10', 'F'])
+        self.assertEqual(self.g_g1.caminho(9), 
+        ['A', '3', 'J', '5', 'K', '4', 'G', '9', 'H', '10', 'F', '11', 'B', 
+        '13', 'C', '14', 'D', '15', 'E'])
+        self.assertEqual(self.g_g1.caminho(12), False)
+        self.assertEqual(self.g_g2.caminho(4), ['1', 'a1', '2', 'a7', '5',
+        'a8', '6', 'a10', '7'])
+        self.assertEqual(self.g_g2.caminho(6), ['1', 'a1', '2', 'a7', '5', 
+        'a8', '6', 'a10', '7', 'a11', '8', 'a12', '9'])
+        self.assertEqual(self.g_g2.caminho(7), False)
+        self.assertEqual(self.g_d3.caminho(2), ['Pedro', 'a1', 'Valentina', 'a2', 'Enzo'])
+        self.assertEqual(self.g_d3.caminho(10), False)
+        self.assertEqual(self.g_pa.caminho(2), ['Joao', 'amizade1', 'Vinicius', 'amizade6', 'Maria'])
+        self.assertEqual(self.g_pa.caminho(4), ['Joao', 'amizade1', 'Vinicius', 'amizade6',
+         'Maria', 'amizade4', 'Isabella', 'amizade7', 'Henrique'])
+        self.assertEqual(self.g_pa.caminho(6), False)
+
     def test_conexo(self):
-        self.assertEqual(self.g_p.conexo(), True)
-        self.assertEqual(self.g_c.conexo(), True)
-        self.assertEqual(self.g_c2.conexo(), True)
-        self.assertEqual(self.g_c3.conexo(), True)
-        self.assertEqual(self.g_d.conexo(), False)
-        self.assertEqual(self.g_d2.conexo(), False)
-        self.assertEqual(self.g_d3.conexo(), False)
+        self.assertTrue(self.g_p.conexo())
+        self.assertTrue(self.g_c.conexo())
+        self.assertTrue(self.g_c2.conexo())
+        self.assertTrue(self.g_c3.conexo())
+        self.assertFalse(self.g_d.conexo())
+        self.assertFalse(self.g_d2.conexo())
+        self.assertFalse(self.g_d3.conexo())
+        self.assertTrue(self.g_pa.conexo())
+        self.assertTrue(self.g_p_sem_paralelas.conexo())
+        self.assertTrue(self.g_l5.conexo())
+        self.assertFalse(self.g_l1.conexo())
+        self.assertFalse(self.g_l3.conexo())
+        self.assertTrue(self.g_l4.conexo())

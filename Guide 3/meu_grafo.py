@@ -1,6 +1,7 @@
 from bibgrafo.grafo_lista_adjacencia import GrafoListaAdjacencia
 from bibgrafo.grafo_exceptions import *
 from collections import deque
+from copy import deepcopy
 
 class MeuGrafo(GrafoListaAdjacencia):
 
@@ -214,19 +215,29 @@ class MeuGrafo(GrafoListaAdjacencia):
                     fila.append(verticeAdjacente)
 
         return arvoreBfs
+    
+
+    def ha_ciclo(self):
+        '''
+        Caso exista, encontra um ciclo no grafo
+        :return: Caso exista ciclo, retorna uma lista contendo um ciclo presente 
+        no grafo, caso contrário, retorna o valor booleano False
+        '''
+        pass
+               
+
+    def caminho(self, n):
+        '''
+        Encontra um caminho de tamanho "n" no grafo.
+        :param n: Tamanho do caminho desejado
+        :return: Uma lista contendo o caminho de tamanho "n" caso exista, caso 
+        contrário retorna o valor booleano False
+        '''
+        pass
 
     def conexo(self):
         '''
         Verifica se o grafo é conexo
         :return: Um valor booleano que indica se o grafo é ou não conexo
         '''
-        qtdVertices = len(self.N)
-        
-        # chama a BFS para um vértice qualquer
-        arvoreBFS = self.bfs(self.N[0])
-
-        qtdVerticesCompConexa = len(arvoreBFS.N)
-
-        # verifica se a quantidade de vértices da componente conexa gerada pela BFS
-        # é igual a quantidade de vértices do grafo original
-        return qtdVertices == qtdVerticesCompConexa
+        pass

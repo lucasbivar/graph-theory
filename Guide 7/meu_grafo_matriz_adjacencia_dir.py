@@ -1,7 +1,11 @@
 from bibgrafo.grafo_matriz_adj_dir import *
 from bibgrafo.grafo_exceptions import *
+<<<<<<< HEAD
 from math import gamma, inf
 
+=======
+from math import inf
+>>>>>>> guide8
 
 class MeuGrafo(GrafoMatrizAdjacenciaDirecionado):
 
@@ -26,7 +30,6 @@ class MeuGrafo(GrafoMatrizAdjacenciaDirecionado):
 
         return E
 
-        
     def __matriz_sem_lacos_e_paralelas(self):
         copia_m_adj = deepcopy(self.M)
 

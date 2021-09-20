@@ -1,11 +1,6 @@
 from bibgrafo.grafo_matriz_adj_dir import *
 from bibgrafo.grafo_exceptions import *
-<<<<<<< HEAD
-from math import gamma, inf
-
-=======
 from math import inf
->>>>>>> guide8
 
 class MeuGrafo(GrafoMatrizAdjacenciaDirecionado):
 

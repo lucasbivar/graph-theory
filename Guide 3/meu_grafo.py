@@ -278,7 +278,7 @@ class MeuGrafo(GrafoListaAdjacencia):
           
             ciclo = [v]
             self.__gerar_caminho_ciclo(v, v, pai, ciclo)
-            if len(ciclo) > 1: return ciclo
+            if len(ciclo) > 1 and ciclo[0] == ciclo[-1]: return ciclo
 
         return False
 

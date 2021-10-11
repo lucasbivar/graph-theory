@@ -4,6 +4,10 @@
 
 <hr>
 
+## 📍 Graph and its representations
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%201)
+
 ## 📍 BFS and DFS
 
 - 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%202)

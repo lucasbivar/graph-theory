@@ -1,7 +1,40 @@
  <img align="center" src="https://i.imgur.com/GgAdMj8.gif">
+ <br> <br>
  <h4 align="center">👨‍💻 Graph Theory 👨‍💻</h4>
 
 <hr>
+
+## 📍 BFS and DFS
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%202)
+
+## 📍 Applications of BFS and DFS
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%203)
+
+## 📍 Adjacency Matrix
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%204)
+
+## 📍 Eulerian Path
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%205)
+
+## 📍 Floyd-Warshall
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%206)
+
+## 📍 Dijkstra
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%207)
+
+## 📍 Minimum Spanning Tree
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%208)
+
+## 📍 Topological Sort
+
+- 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%209)
 
 <hr> 
  

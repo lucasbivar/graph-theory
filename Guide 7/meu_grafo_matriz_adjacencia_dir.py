@@ -25,6 +25,64 @@ class MeuGrafo(GrafoMatrizAdjacenciaDirecionado):
 
         return E
 
+    def dijkstra(self, v_fonte, v_destino):
+        if not self.existeVertice(v_fonte) or not self.existeVertice(v_destino):
+            raise VerticeInvalidoException(
+                "Os vértices passados não existem no grafo.")
+
+        # removendo laços e paralelas
+        copia_m_adj_dir = self.__matriz_sem_lacos_e_paralelas()
+
+        # peso do menor caminho entre v_fonte e vertice r
+        beta = {n: inf for n in self.N}
+        phi = {n: 0 for n in self.N}  # permanente ou temporário
+        pi = {n: 0 for n in self.N}  # predecessores
+    
+        beta[v_fonte] = 0
+        phi[v_fonte] = 1
+
+        w = v_fonte
+        while True:     
+        
+            for v in copia_m_adj_dir[self.N.index(w)]:
+                for _, aresta in v.items():
+                    v1 = aresta.getV1()
+                    v2 = aresta.getV2()
+                    r = v1 if w == v2 else v2
+                    alpha_w_r = aresta.getPeso()
+                
+                    if phi[r] == 0 and beta[r] > beta[w] + alpha_w_r:
+                        beta[r] = beta[w] + alpha_w_r
+                        pi[r] = w
+                    
+                
+
+            beta_menor_valor = inf
+            r_star = None
+            for v in self.N:
+                if phi[v] == 0 and beta[v] < beta_menor_valor:
+                    beta_menor_valor = beta[v]
+                    r_star = v
+                
+
+            if r_star == None:
+                return False
+            else:
+                phi[r_star] = 1
+                w = r_star
+
+            if w == v_destino:
+                break
+
+        caminho = [v_destino]
+        atual = v_destino
+        while pi[atual] != 0:
+            atual = pi[atual]
+            caminho.append(atual)
+        
+        return caminho[::-1]
+
+
     def __matriz_sem_lacos_e_paralelas(self):
         copia_m_adj = deepcopy(self.M)
 

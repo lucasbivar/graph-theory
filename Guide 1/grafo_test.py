@@ -2,6 +2,7 @@ import unittest
 from bibgrafo.grafo_exceptions import *
 from meu_grafo import MeuGrafo
 
+
 class TestGrafo(unittest.TestCase):
 
     def setUp(self):

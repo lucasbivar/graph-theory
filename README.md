@@ -4,6 +4,10 @@
 
 <hr>
 
+Se de alguma forma este repositório te ajudou ou vem te ajudando, eu peço que, se possível, faça uma retribuição doando qualquer valor para a chave pix aleatória: lucasbivarfonseca@gmail.com
+
+<hr>
+
 ## 📍 Graph and its representations
 
 - 📦 [Repository](https://github.com/lucasbivar/graph-theory/tree/main/Guide%201)

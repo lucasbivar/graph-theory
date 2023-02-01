@@ -4,7 +4,7 @@
 
 <hr>
 
-Se de alguma forma este repositório te ajudou ou vem te ajudando, eu peço que, se possível, faça uma retribuição doando qualquer valor para a chave pix aleatória: lucasbivarfonseca@gmail.com
+Se de alguma forma este repositório te ajudou ou vem te ajudando, eu peço que, se possível, faça uma retribuição doando qualquer valor para a chave pix: lucasbivarfonseca@gmail.com
 
 <div align="center">
  <img align="center" src="https://media0.giphy.com/media/rYV15QNUykd2WW6XP6/200w.gif?cid=82a1493b038ria27lgji6ixddc78hta6kry1s0rpxg6jvh2s&rid=200w.gif&ct=g">
